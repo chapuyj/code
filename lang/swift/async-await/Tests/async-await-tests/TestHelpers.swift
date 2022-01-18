@@ -15,3 +15,11 @@ func assertAsyncThrowsError(_ expression: @escaping () async throws -> Void, fil
         XCTAssertTrue(true)
     }
 }
+
+extension Sequence {
+    func assertIsContained(in expression: @autoclosure () -> [Element], file: StaticString = #filePath, line: UInt = #line) where Element: Equatable {
+        
+        let succeed = self.allSatisfy(expression().contains)
+        XCTAssertTrue(succeed)
+    }
+}

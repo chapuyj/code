@@ -24,7 +24,7 @@ extension Array {
 
 func fetch(url: String) async throws -> Data {
     let url = URL(string: url)!
-    let (data, response) = try await URLSession.shared.data(from: url)
+    let (data, _) = try await URLSession.shared.data(from: url)
     return data
 }
 
